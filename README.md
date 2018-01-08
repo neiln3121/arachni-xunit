@@ -1,1 +1,2 @@
 # arachni-xunit
+Provides a docker image of the arachni security tool with an additional reporter for generating xunit reports. These can be parsed into test results for failing builds using JUnit parser in Bamboo and Jenkins.
