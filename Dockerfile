@@ -12,3 +12,9 @@ RUN wget -qO- https://github.com/Arachni/arachni/releases/download/v${VERSION}/a
 EXPOSE 9292
 
 COPY reporters ./system/gems/gems/arachni-${VERSION}/components/reporters
+
+# OPEN SHIFT STUFF ?
+USER root
+RUN chown -R 1001 /arachni
+
+USER 1001
