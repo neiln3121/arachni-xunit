@@ -15,6 +15,7 @@ COPY reporters ./system/gems/gems/arachni-${VERSION}/components/reporters
 
 # OPEN SHIFT STUFF ?
 USER root
-RUN chown -R 1001 /arachni
+RUN chown root:root /arachni && \
+    chmod 664 /arachni
 
 USER 1001
