@@ -15,7 +15,13 @@ COPY reporters ./system/gems/gems/arachni-${VERSION}/components/reporters
 
 # OPEN SHIFT STUFF ?
 USER root
-RUN chown root:root /arachni && \
-    chmod 664 /arachni
+ENV FIX_FILES /arachni
+
+RUN find $FIX_FILES -exec chgrp 0 {} \;  && \
+    find $FIX_FILES -exec chmod g+rw {} \; && \
+    find $FIX_FILES -type d -exec chmod g+x {} +
+#
+# RUN chown -R root:root /arachni && \
+#     chmod 664 /arachni
 
 USER 1001
